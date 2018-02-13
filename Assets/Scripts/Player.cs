@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 [RequireComponent (typeof(Controller2D))]
+[RequireComponent(typeof(LineDrawer))]
 public class Player : MonoBehaviour {
     private Rigidbody2D rb;
     float gravity = -20;
@@ -14,10 +15,12 @@ public class Player : MonoBehaviour {
     float accelerationTimeGrounded = .1f;
     private float velocityXSmoothing;
     Controller2D controller;
+    LineDrawer linedrawer;
     // Use this for initialization
     void Start()
     {
         controller = this.GetComponent<Controller2D>();
+        linedrawer = this.GetComponent<LineDrawer>();
         //rb = this.GetComponent<Rigidbody2D>();
         //slowdown = .5f;
         moveSpeed = 6f;
@@ -42,6 +45,10 @@ public class Player : MonoBehaviour {
         velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below)?accelerationTimeGrounded:accelerationTimeAirborne);
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+        if(Input.GetMouseButton(0))
+        {
+            linedrawer.addComponent();
+        }
     }
     /*void FixedUpdate()
     {

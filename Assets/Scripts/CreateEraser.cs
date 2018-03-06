@@ -5,7 +5,7 @@ using UnityEngine;
 public class CreateEraser : MonoBehaviour {
 
 	private float InstantiationTimer = 1f;
-//	GameObject eraser = GameObject.FindWithTag("Eraser");
+//	GameObject eraser = GameObject.FindWithTaqg("Eraser");
 	public GameObject eraser;
 
 	void Update () {

@@ -10,7 +10,10 @@ public class LineDrawer : MonoBehaviour {
     private float compRad;
     private float playerRad;
     private bool stillHeld;
+    private bool firstPress;
+    private bool canMake; //true if can draw more
     private float spacing = .10f;
+    private float totalLength = 10f;
     // Use this for initialization
     void Start () {
         if (m_Camera == null)
@@ -25,11 +28,14 @@ public class LineDrawer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
+            firstPress = true;
             stillHeld = true;
         }
-        else if(Input.GetMouseButtonUp(0))
+        else
+            firstPress = false;
+        if(Input.GetMouseButtonUp(0))
         {
             stillHeld = false;
         }
@@ -39,12 +45,21 @@ public class LineDrawer : MonoBehaviour {
     {
         Vector3 mousePosition = m_Camera.ScreenToWorldPoint(Input.mousePosition);
         Vector3 pos = new Vector3(mousePosition.x, mousePosition.y, 0);
-       // Debug.Log(pos);
-        if (!m_Points.Contains(pos))
+        if (m_Points.Count > (totalLength / spacing))
         {
-
-
-            if (stillHeld && m_Points.Count != 0) //only add dots in between if user is continuously holding the mouse button
+            canMake = false;
+            stillHeld = false;
+        }
+        else
+            canMake = true;
+        // Debug.Log(pos);
+        if (!m_Points.Contains(pos)&&canMake)
+        {
+            if (firstPress)
+            {
+                addPoint(pos);
+            }
+            else if (stillHeld && m_Points.Count != 0 &&canMake )//&& m_Points.Count<(totalLength/spacing)) //only add dots in between if user is continuously holding the mouse button
             {
                 Vector3 lastPoint = m_Points[m_Points.Count - 1];
                 float distance = Vector3.Distance(lastPoint, pos);
@@ -52,7 +67,7 @@ public class LineDrawer : MonoBehaviour {
                 {
                     int extraNum = Mathf.FloorToInt(distance / spacing);
                     Vector3 temp = pos - lastPoint;
-                    for (int i = 1; i < extraNum; i++)
+                    for (int i = 1; i < extraNum&& m_Points.Count < (totalLength / spacing); i++)
                     {
 
                         addPoint(lastPoint + (temp / extraNum * i));
@@ -64,8 +79,7 @@ public class LineDrawer : MonoBehaviour {
             {
                 stillHeld = false;
             }
-            else if (stillHeld) 
-                addPoint(pos);
+            
         }
 
     }   

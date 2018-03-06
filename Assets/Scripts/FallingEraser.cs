@@ -13,4 +13,9 @@ public class FallingEraser : MonoBehaviour {
 		transform.Rotate(Vector3.forward, spinSpeed * Time.deltaTime);
 
 	}
+
+	void OnCollisionEnter2D (Collision2D collision)
+	{
+		Destroy (this.gameObject);
+	}
 }

@@ -7,7 +7,7 @@ public class JumpingEnemy : MonoBehaviour {
 	public Vector3 pos1 = new Vector3(-4,0,0);
 	public Vector3 pos2 = new Vector3(4,0,0);
 	public float speed = 1.0f;
-	public Vector2 jumpForce = (0,5);
+	public Vector2 jumpForce = new Vector2(0,5);
 
 	// Use this for initialization
 	void Start () {

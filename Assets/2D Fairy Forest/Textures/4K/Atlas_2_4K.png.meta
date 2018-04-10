@@ -1,0 +1,274 @@
+fileFormatVersion: 2
+guid: f8c324a6531b64b4495dc18a92b5505c
+timeCreated: 1491984829
+licenseType: Store
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Tree_1
+    21300002: Tree_1_fade
+    21300004: Tree_2_completed_1
+    21300006: Tree_2_completed_2
+    21300008: Tree_2_completed_3
+    21300010: Stone_2
+    21300012: Stone_2_with_moss
+    21300014: Atlas_2_4K_7
+    21300016: Atlas_2_4K_8
+    21300018: Stone_1
+    21300020: Tree_2_without_light
+    21300022: Tree_2_without_moss
+    21300024: Tree_2_without_mushrooms
+    21300026: Bush_8
+    21300028: Tree_4
+    21300030: Stone_3_with_moss
+    21300032: Stone_1_with_moss
+    21300034: Stone_3
+    21300036: Background
+    21300038: Sparkle
+    21300040: Clouds
+    21300042: Front_background_2
+    21300044: Front_background_1
+    21300046: Sun_rays_2
+    21300048: Sun_rays_1
+    21300050: Atlas_2_4K_15
+    21300052: Stone_4_without_moss
+    21300054: Stone_1_without_moss
+    21300056: Atlas_2_4K_22
+    21300058: Stone_2_without_moss
+    21300060: Stone_4
+    21300062: Stone_1
+    21300064: Stone_3_without_moss
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 8192
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Background
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6032
+        width: 4096
+        height: 2160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Sparkle
+      rect:
+        serializedVersion: 2
+        x: 4138
+        y: 6206
+        width: 4000
+        height: 1810
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Clouds
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4050
+        width: 4040
+        height: 1942
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Front_background_2
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 5303
+        width: 4096
+        height: 695
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Front_background_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 2836
+        width: 1055
+        height: 1076
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Sun_rays_2
+      rect:
+        serializedVersion: 2
+        x: 1306
+        y: 2172
+        width: 2736
+        height: 1800
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Sun_rays_1
+      rect:
+        serializedVersion: 2
+        x: 4138
+        y: 3112
+        width: 3144
+        height: 2132
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tree_4
+      rect:
+        serializedVersion: 2
+        x: 4502
+        y: 84
+        width: 3140
+        height: 2950
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Stone_4_without_moss
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 1480
+        width: 1349
+        height: 605
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Stone_1_without_moss
+      rect:
+        serializedVersion: 2
+        x: 1689
+        y: 1550
+        width: 2098
+        height: 536
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Stone_2_without_moss
+      rect:
+        serializedVersion: 2
+        x: 1814
+        y: 960
+        width: 1818
+        height: 447
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Stone_4
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 626
+        width: 1349
+        height: 659
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Stone_1
+      rect:
+        serializedVersion: 2
+        x: 1662
+        y: 68
+        width: 2220
+        height: 864
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Stone_3_without_moss
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 84
+        width: 1293
+        height: 469
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

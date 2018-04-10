@@ -14,7 +14,7 @@ public class CameraController : MonoBehaviour {
 
     [SerializeField] float movementThreshold = 5;
 
-    void Update()
+    void FixedUpdate()
     {
         if (player.transform.position.x > transform.position.x)
             xDifference = player.transform.position.x - transform.position.x;
@@ -27,7 +27,7 @@ public class CameraController : MonoBehaviour {
 
         if (xDifference >= movementThreshold  || yDifference >= movementThreshold)
         {
-            moveTemp = player.transform.position;
+            moveTemp = new Vector3(player.transform.position.x, player.transform.position.y, transform.position.z);
             transform.position = Vector3.MoveTowards(transform.position, moveTemp, speed * Time.deltaTime);
 
         }

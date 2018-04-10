@@ -109,7 +109,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d527d848724c0149a3d5ee71f88d194, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  linecomponent: {fileID: 0}
+  linecomponent: {fileID: 1891852227939804, guid: 281238cea27322e409932aacc453cdb9,
+    type: 2}
+  barDisplay: 0
+  pos: {x: 20, y: 40}
+  size: {x: 60, y: 20}
+  emptyTex: {fileID: 0}
+  fullTex: {fileID: 0}
 --- !u!212 &212264285236371296
 SpriteRenderer:
   m_ObjectHideFlags: 1

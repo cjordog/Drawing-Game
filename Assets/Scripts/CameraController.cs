@@ -13,12 +13,17 @@ public class CameraController : MonoBehaviour {
     public float dampTime = 0.15f;
     private Vector3 velocity = Vector3.zero;
     public Transform target;
+	public float bufferPercentage = 0.2f;
+	private float yBuffer;
+	private float xBuffer;
 
     // Update is called once per frame
     void Update()
     {
+		
         if (target)
         {
+			
             Vector3 point = GetComponent<Camera>().WorldToViewportPoint(target.position);
             Vector3 delta = target.position - GetComponent<Camera>().ViewportToWorldPoint(new Vector3(0.5f, 0.5f, point.z));
             Vector3 destination = transform.position + delta;
@@ -26,21 +31,26 @@ public class CameraController : MonoBehaviour {
         }
 
     }
+
+	void Start ()
+	{
+		offset = transform.position - player.transform.position;
+		screenSize = new Vector2(Screen.width, Screen.height);
+		xBuffer = screenSize.x * bufferPercentage;
+		yBuffer = screenSize.y * bufferPercentage;
+	}
+
+	void LateUpdate ()
+	{
+		playerPos = player.transform.position;
+		playerScreenPosition = Camera.main.ScreenToWorldPoint(playerPos);
+		if (playerScreenPosition.x < xBuffer || playerScreenPosition.x > screenSize.x - xBuffer || 
+			playerScreenPosition.y < yBuffer || playerScreenPosition.y > screenSize.y - yBuffer) {
+			Vector2 temp = Camera.main.ScreenToWorldPoint (new Vector2 (Mathf.Clamp (playerScreenPosition.x, xBuffer, screenSize.x - xBuffer), 
+				Mathf.Clamp (playerScreenPosition.y, yBuffer, screenSize.y - yBuffer)));
+			transform.position = temp + offset;
+		}
+	}
+
+
 }
-
-
-// Use this for initialization
-//void Start ()
-  //  {
-    //    playerPos = player.transform.position;
-      //  offset = transform.position - player.transform.position;
-        //screenSize = new Vector2(Screen.width, Screen.height);
-      //  playerScreenPosition = Camera.main.ScreenToWorldPoint(playerPos);
-	//}
-
-    // LateUpdate is called after Update each frame
-    //void LateUpdate ()
-    //{
-        //transform.position = playerPos + offset;
-	//}
-

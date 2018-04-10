@@ -12,7 +12,7 @@ public class LineDrawer : MonoBehaviour {
     private bool stillHeld;
     private bool firstPress;
     private bool canMake; //true if can draw more
-    private float spacing = .10f;
+    private float spacing = .05f;
     private float totalLength = 10f;
     public float barDisplay; //current progress
     public Vector2 pos = new Vector2(20, 40);

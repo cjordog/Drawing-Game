@@ -21,7 +21,9 @@ public class LineDrawer : MonoBehaviour {
             m_Camera = Camera.main;
         }
         compRad = linecomponent.GetComponent<CircleCollider2D>().radius;
-        playerRad = this.GetComponent<BoxCollider2D>().size.magnitude;
+        float playerRadX = this.GetComponent<BoxCollider2D>().size.x;
+        float playerRadY = this.GetComponent<BoxCollider2D>().size.y;
+        playerRad = Mathf.Sqrt(Mathf.Pow((playerRadX / 4),2)  + Mathf.Pow((playerRadY / 4),2));
         m_Points = new List<Vector3>();
         stillHeld = false;
     }
@@ -55,10 +57,16 @@ public class LineDrawer : MonoBehaviour {
         // Debug.Log(pos);
         if (!m_Points.Contains(pos)&&canMake)
         {
+           if (Vector3.Distance(pos, this.transform.position) < (compRad + playerRad))
+            {
+                stillHeld = false;
+                firstPress = false;
+            }
             if (firstPress)
             {
                 addPoint(pos);
             }
+            
             else if (stillHeld && m_Points.Count != 0 &&canMake )//&& m_Points.Count<(totalLength/spacing)) //only add dots in between if user is continuously holding the mouse button
             {
                 Vector3 lastPoint = m_Points[m_Points.Count - 1];
@@ -75,10 +83,7 @@ public class LineDrawer : MonoBehaviour {
                 }
             }
 
-            else if (Vector3.Distance(pos, this.transform.position) < (compRad + playerRad))
-            {
-                stillHeld = false;
-            }
+            
             
         }
 
@@ -87,6 +92,10 @@ public class LineDrawer : MonoBehaviour {
     {
         if(m_Points.Count!=0)
             m_Points.RemoveAt(0);
+    }
+    public float percentage()
+    {
+        return (m_Points.Count / totalLength / spacing);
     }
     private void addPoint(Vector2 pos)
     {

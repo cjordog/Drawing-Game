@@ -16,11 +16,13 @@ public class Player : MonoBehaviour {
     private float velocityXSmoothing;
     Controller2D controller;
     LineDrawer linedrawer;
+
     // Use this for initialization
     void Start()
     {
         controller = this.GetComponent<Controller2D>();
         linedrawer = this.GetComponent<LineDrawer>();
+        
         //rb = this.GetComponent<Rigidbody2D>();
         //slowdown = .5f;
         moveSpeed = 6f;
@@ -31,6 +33,7 @@ public class Player : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        
         if(controller.collisions.above || controller.collisions.below)
         {
             velocity.y = 0;
@@ -49,7 +52,9 @@ public class Player : MonoBehaviour {
         {
             linedrawer.addComponent();
         }
+        
     }
+   
     /*void FixedUpdate()
     {
         if (Input.GetAxis("Horizontal") < 0)

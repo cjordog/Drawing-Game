@@ -4,18 +4,18 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class Controller2D : MonoBehaviour {
     public LayerMask collisionMask; //SHOULD BE OBSTACLE MASK
-    const float skinWidth = .015f;
+    const float skinWidth = .005f;
     BoxCollider2D collider;
 
-    float maxClimbAngle = 80f;
-    float maxDescendAngle = 80f;
+    float maxClimbAngle = 60f;
+    float maxDescendAngle = 60f;
     RaycastOrigins raycastorigins;
     public int horizontalRayCount = 4;
     public int verticalRayCount = 4;
     public CollisionInfo collisions;
     float horizontalRaySpacing;
     float verticalRaySpacing;
-
+    float averageAngle;
     // Use this for initialization
     void Start() {
         collider = GetComponent<BoxCollider2D>(); //get collider
@@ -27,7 +27,6 @@ public class Controller2D : MonoBehaviour {
     {
         float directionX = Mathf.Sign(velocity.x);
         float rayLength = Mathf.Abs(velocity.x) + skinWidth;
-
         for (int i = 0; i < horizontalRayCount; i++)
         {
             Vector2 rayOrigin = (directionX == -1) ? raycastorigins.bottomLeft : raycastorigins.bottomRight;
@@ -124,22 +123,38 @@ public class Controller2D : MonoBehaviour {
 
     public void ClimbSlope(ref Vector3 velocity, float slopeAngle)
     {
+        
+        if (averageAngle == 0f)
+        {
+            averageAngle = slopeAngle;
+        }
+        else if (Mathf.Abs(slopeAngle - averageAngle) > 10)
+        {
+            averageAngle = slopeAngle;
+        }
+        else
+        {
+            averageAngle = averageAngle + slopeAngle / 2;
+        }
+        Debug.Log(velocity.x);
         float moveDistance = Mathf.Abs(velocity.x);
-        float climbVelocityY = Mathf.Sin(slopeAngle * Mathf.Deg2Rad) * moveDistance*4f;
+        float climbVelocityY = Mathf.Sin(averageAngle * Mathf.Deg2Rad) * moveDistance;
         if (velocity.y <= climbVelocityY)
         {
             velocity.y = climbVelocityY;
-            velocity.x = Mathf.Cos(slopeAngle * Mathf.Deg2Rad) * moveDistance + Mathf.Sign(velocity.x);
+            velocity.x = Mathf.Cos(averageAngle * Mathf.Deg2Rad) * moveDistance + Mathf.Sign(velocity.x);
             collisions.below = true;
             collisions.climbingSlope = true;
-            collisions.slopeAngle = slopeAngle;
+            collisions.slopeAngle = averageAngle;
         }
     }
 
     public void DescendSlope(ref Vector3 velocity)
     {
         float directionX = Mathf.Sign(velocity.x); //pick sign
-        Vector2 rayOrigin = (directionX == -1) ? raycastorigins.bottomRight : raycastorigins.bottomLeft; 
+        Vector2 rayOrigin = (directionX == -1) ? raycastorigins.bottomRight : raycastorigins.bottomLeft;
+        collisions.climbingSlope = false;
+        averageAngle = 0;
         // pick ray based on which way we' re going
         RaycastHit2D hit = Physics2D.Raycast(rayOrigin, -Vector2.up, Mathf.Infinity, collisionMask);
         if(hit)

@@ -1,15 +1,10 @@
 fileFormatVersion: 2
-guid: aeafa3b244e57564dbaf4afe15debcec
-timeCreated: 1507834603
-licenseType: Store
+guid: 7f6db3d9f885c4679b20395c2b0de203
+timeCreated: 1523931351
+licenseType: Free
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: Mobile_Backgrounds_06_3
-    21300002: Mobile_Backgrounds_06_4
-    21300004: Mobile_Backgrounds_07_3
-    21300006: Mobile_Backgrounds_07_4
-    21300008: Mobile_Backgrounds_08_3
-    21300010: Mobile_Backgrounds_08_2
+  fileIDToRecycleName: {}
+  externalObjects: {}
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -18,6 +13,8 @@ TextureImporter:
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
     mipMapFadeDistanceStart: 1
     mipMapFadeDistanceEnd: 3
   bumpmap:
@@ -33,14 +30,17 @@ TextureImporter:
   textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
+    serializedVersion: 2
     filterMode: -1
     aniso: -1
     mipBias: -1
-    wrapMode: 1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -58,22 +58,7 @@ TextureImporter:
   platformSettings:
   - buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-  - buildTarget: Standalone
-    maxTextureSize: 2048
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-  - buildTarget: WebGL
-    maxTextureSize: 2048
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
@@ -82,86 +67,9 @@ TextureImporter:
     overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Mobile_Backgrounds_06_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 3127
-        width: 4096
-        height: 969
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Mobile_Backgrounds_06_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 2427
-        width: 4096
-        height: 695
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Mobile_Backgrounds_07_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1623
-        width: 4096
-        height: 798
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Mobile_Backgrounds_07_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 863
-        width: 4096
-        height: 754
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Mobile_Backgrounds_08_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 249
-        width: 4096
-        height: 611
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Mobile_Backgrounds_08_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 4096
-        height: 246
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
+    sprites: []
     outline: []
+    physicsShape: []
   spritePackingTag: 
   userData: 
   assetBundleName: 

@@ -1,125 +1,20 @@
 fileFormatVersion: 2
-guid: 08ba9b493173dff4884cd9e532a0062b
-timeCreated: 1491983049
-licenseType: Store
+guid: 0fb406b6b81dc4cc09ef2028700c1ced
+timeCreated: 1523931251
+licenseType: Free
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: Ground
-    21300002: Tree_2_completed_3
-    21300004: Moss_3
-    21300006: Tree_1
-    21300008: Bush_5
-    21300010: Front_background
-    21300012: Moss_3
-    21300014: Branches_5
-    21300016: Sun_rays
-    21300018: Tree_2_without_moss
-    21300020: Background_Tree_1_1
-    21300022: Bush_6
-    21300024: Bush_2
-    21300026: Sparkle
-    21300028: Branches_3
-    21300030: Tree_1_fade
-    21300032: Bush_1
-    21300034: Tree_2_completed_2
-    21300036: Stone_1
-    21300038: Bush_8
-    21300040: Tree_2_without_light
-    21300042: Moss_4
-    21300044: Background_Tree_2_2
-    21300046: Moss_2
-    21300048: Background_Tree_2_1
-    21300050: Moss_1
-    21300052: Bush_7
-    21300054: Atlas_1_1K_64
-    21300056: Stone_2
-    21300058: Tree_2_completed_1
-    21300060: Tree_2_without_mushrooms
-    21300062: Stone_3
-    21300064: Branches_2
-    21300066: Stone_2_with_moss
-    21300068: Atlas_1_1K_74
-    21300070: Stone_1_with_moss
-    21300072: Stone_3_with_moss
-    21300074: Atlas_1_1K_78
-    21300076: Branches_1
-    21300078: Bush_4
-    21300080: Branches_4
-    21300082: Bush_3
-    21300084: Ground
-    21300086: Tree_2_without_moss
-    21300088: Branches_2
-    21300090: Bush_6
-    21300092: Front_background
-    21300094: Bush_5
-    21300096: Bush_3
-    21300098: Stone_5_without_moss
-    21300100: Branches_4
-    21300102: Tree_1
-    21300104: Sun_rays
-    21300106: Background_Tree_2_1
-    21300108: Bush_1
-    21300110: Moss_1
-    21300112: Stone_2_with_moss
-    21300114: Moss_3
-    21300116: Background_Tree_1_1
-    21300118: Bush_8
-    21300120: Tree_2_without_light
-    21300122: Stone_1_with_moss
-    21300124: Moss_4
-    21300126: Branches_1
-    21300128: Background_Tree_2_2
-    21300130: Moss_2
-    21300132: Tree_1_fade
-    21300134: Stone_2
-    21300136: Branches_3
-    21300138: Tree_2_without_mushrooms
-    21300140: Tree_2_completed_1
-    21300142: Tree_2_completed_3
-    21300144: Tree_2_completed_2
-    21300146: Bush_7
-    21300148: Stone_3_with_moss
-    21300150: Stone_3
-    21300152: Stone_1
-    21300154: Branches_5
-    21300156: Moss_1
-    21300158: Bush_4
-    21300160: Bush_2
-    21300162: Background_foliage_1
-    21300164: Background_foliage_2
-    21300166: Background_tree_2
-    21300168: Background_bush_2
-    21300170: Tree_3
-    21300172: Bush_8
-    21300174: Bush_1
-    21300176: Bush_7
-    21300178: Bush_2
-    21300180: Background_bush_1
-    21300182: Bush_6
-    21300184: Bush_5
-    21300186: Tree_1
-    21300188: Stone_2
-    21300190: Stone_3
-    21300192: Stone_5
-    21300194: Mushroom_2
-    21300196: Background_tree_1
-    21300198: Tree_2
-    21300200: Background_tree_3
-    21300202: Moss_2
-    21300204: Bush_9
-    21300206: Bush_3
-    21300208: Mushroom_1
-    21300210: Bush_4
-    21300212: Mushroom_4
-    21300214: Mushroom_3
-  serializedVersion: 2
+  fileIDToRecycleName: {}
+  externalObjects: {}
+  serializedVersion: 4
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
+    sRGBTexture: 1
     linearTexture: 0
-    correctGamma: 0
     fadeOut: 0
     borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
     mipMapFadeDistanceStart: 1
     mipMapFadeDistanceEnd: 3
   bumpmap:
@@ -129,428 +24,52 @@ TextureImporter:
     normalMapFilter: 0
   isReadable: 0
   grayScaleToAlpha: 0
-  generateCubemap: 0
+  generateCubemap: 6
   cubemapConvolution: 0
-  cubemapConvolutionSteps: 7
-  cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
-  textureFormat: -3
+  textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
+    serializedVersion: 2
     filterMode: -1
-    aniso: 16
+    aniso: -1
     mipBias: -1
-    wrapMode: 1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
-  rGBM: 0
   compressionQuality: 50
-  allowsAlphaSplitting: 0
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
+  alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
   textureType: 8
-  buildTargetSettings: []
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Background_foliage_1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1855
-        width: 321
-        height: 193
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Background_foliage_2
-      rect:
-        serializedVersion: 2
-        x: 355
-        y: 1832
-        width: 400
-        height: 196
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Background_tree_2
-      rect:
-        serializedVersion: 2
-        x: 775
-        y: 1598
-        width: 472
-        height: 450
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Background_bush_2
-      rect:
-        serializedVersion: 2
-        x: 1267
-        y: 1902
-        width: 164
-        height: 146
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Tree_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1170
-        width: 755
-        height: 642
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Bush_8
-      rect:
-        serializedVersion: 2
-        x: 1267
-        y: 1745
-        width: 163
-        height: 137
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Bush_1
-      rect:
-        serializedVersion: 2
-        x: 1267
-        y: 1627
-        width: 147
-        height: 98
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Bush_7
-      rect:
-        serializedVersion: 2
-        x: 775
-        y: 1425
-        width: 422
-        height: 153
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Bush_2
-      rect:
-        serializedVersion: 2
-        x: 1217
-        y: 1453
-        width: 180
-        height: 125
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Stone_5_without_moss
-      rect:
-        serializedVersion: 2
-        x: 775
-        y: 1179
-        width: 369
-        height: 226
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Background_bush_1
-      rect:
-        serializedVersion: 2
-        x: 1164
-        y: 1232
-        width: 185
-        height: 173
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Bush_6
-      rect:
-        serializedVersion: 2
-        x: 1370
-        y: 1311
-        width: 114
-        height: 122
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Bush_5
-      rect:
-        serializedVersion: 2
-        x: 1388
-        y: 1178
-        width: 92
-        height: 113
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Tree_1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 613
-        width: 532
-        height: 537
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Stone_2
-      rect:
-        serializedVersion: 2
-        x: 552
-        y: 964
-        width: 474
-        height: 186
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Stone_3
-      rect:
-        serializedVersion: 2
-        x: 1046
-        y: 1032
-        width: 322
-        height: 127
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Moss_1
-      rect:
-        serializedVersion: 2
-        x: 552
-        y: 762
-        width: 473
-        height: 182
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Stone_5
-      rect:
-        serializedVersion: 2
-        x: 1045
-        y: 696
-        width: 369
-        height: 248
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Moss_3
-      rect:
-        serializedVersion: 2
-        x: 552
-        y: 634
-        width: 384
-        height: 108
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Mushroom_2
-      rect:
-        serializedVersion: 2
-        x: 956
-        y: 660
-        width: 66
-        height: 82
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Background_tree_1
-      rect:
-        serializedVersion: 2
-        x: 1095
-        y: 259
-        width: 350
-        height: 417
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Tree_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 55
-        width: 531
-        height: 538
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Background_tree_3
-      rect:
-        serializedVersion: 2
-        x: 551
-        y: 117
-        width: 524
-        height: 476
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Moss_2
-      rect:
-        serializedVersion: 2
-        x: 1095
-        y: 83
-        width: 257
-        height: 156
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Bush_9
-      rect:
-        serializedVersion: 2
-        x: 1372
-        y: 120
-        width: 104
-        height: 119
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Bush_3
-      rect:
-        serializedVersion: 2
-        x: 551
-        y: 35
-        width: 112
-        height: 62
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Mushroom_1
-      rect:
-        serializedVersion: 2
-        x: 683
-        y: 27
-        width: 68
-        height: 70
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Bush_4
-      rect:
-        serializedVersion: 2
-        x: 771
-        y: 49
-        width: 60
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Mushroom_4
-      rect:
-        serializedVersion: 2
-        x: 851
-        y: 22
-        width: 57
-        height: 75
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Mushroom_3
-      rect:
-        serializedVersion: 2
-        x: 928
-        y: 26
-        width: 43
-        height: 71
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
+    sprites: []
     outline: []
+    physicsShape: []
   spritePackingTag: 
   userData: 
   assetBundleName: 

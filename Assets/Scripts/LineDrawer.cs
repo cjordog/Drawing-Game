@@ -12,16 +12,36 @@ public class LineDrawer : MonoBehaviour {
     private bool stillHeld;
     private bool firstPress;
     private bool canMake; //true if can draw more
-    private float spacing = .10f;
+    private float spacing = .05f;
     private float totalLength = 10f;
-    // Use this for initialization
+    public float barDisplay; //current progress
+    public Vector2 pos = new Vector2(20, 40);
+    public Vector2 size = new Vector2(60, 20);
+    public Texture2D emptyTex;
+    public Texture2D fullTex;
+
+        void OnGUI()
+        {
+            //draw the background:
+            GUI.BeginGroup(new Rect(pos.x, pos.y, size.x, size.y));
+            GUI.Box(new Rect(0, 0, size.x, size.y), emptyTex);
+
+            //draw the filled-in part:
+            GUI.BeginGroup(new Rect(0, 0, size.x * barDisplay, size.y));
+            GUI.Box(new Rect(0, 0, size.x, size.y), fullTex);
+            GUI.EndGroup();
+            GUI.EndGroup();
+        }
+        
     void Start () {
         if (m_Camera == null)
         {
             m_Camera = Camera.main;
         }
         compRad = linecomponent.GetComponent<CircleCollider2D>().radius;
-        playerRad = this.GetComponent<BoxCollider2D>().size.magnitude;
+        float playerRadX = this.GetComponent<BoxCollider2D>().size.x;
+        float playerRadY = this.GetComponent<BoxCollider2D>().size.y;
+        playerRad = Mathf.Sqrt(Mathf.Pow((playerRadX / 4),2)  + Mathf.Pow((playerRadY / 4),2));
         m_Points = new List<Vector3>();
         stillHeld = false;
     }
@@ -39,8 +59,13 @@ public class LineDrawer : MonoBehaviour {
         {
             stillHeld = false;
         }
-		
-	}
+        //for this example, the bar display is linked to the current time,
+        //however you would set this value based on your desired display
+        //eg, the loading progress, the player's health, or whatever.
+        barDisplay = m_Points.Count/(totalLength/spacing);
+        //        barDisplay = MyControlScript.staticHealth;
+
+    }
     public void addComponent()
     {
         Vector3 mousePosition = m_Camera.ScreenToWorldPoint(Input.mousePosition);
@@ -55,10 +80,16 @@ public class LineDrawer : MonoBehaviour {
         // Debug.Log(pos);
         if (!m_Points.Contains(pos)&&canMake)
         {
+           if (Vector3.Distance(pos, this.transform.position) < (compRad + playerRad))
+            {
+                stillHeld = false;
+                firstPress = false;
+            }
             if (firstPress)
             {
                 addPoint(pos);
             }
+            
             else if (stillHeld && m_Points.Count != 0 &&canMake )//&& m_Points.Count<(totalLength/spacing)) //only add dots in between if user is continuously holding the mouse button
             {
                 Vector3 lastPoint = m_Points[m_Points.Count - 1];
@@ -75,10 +106,7 @@ public class LineDrawer : MonoBehaviour {
                 }
             }
 
-            else if (Vector3.Distance(pos, this.transform.position) < (compRad + playerRad))
-            {
-                stillHeld = false;
-            }
+            
             
         }
 
@@ -87,6 +115,10 @@ public class LineDrawer : MonoBehaviour {
     {
         if(m_Points.Count!=0)
             m_Points.RemoveAt(0);
+    }
+    public float percentage()
+    {
+        return (m_Points.Count / totalLength / spacing);
     }
     private void addPoint(Vector2 pos)
     {

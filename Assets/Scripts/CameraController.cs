@@ -7,7 +7,7 @@ public class CameraController : MonoBehaviour {
     [SerializeField] Transform player;
 
     private Vector3 moveTemp;
-
+    
     [SerializeField] float speed = 6f;
     [SerializeField] float xDifference;
     [SerializeField] float yDifference;

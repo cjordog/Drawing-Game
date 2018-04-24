@@ -18,9 +18,23 @@ public class LineScript : MonoBehaviour {
         time = time + Time.deltaTime;
         if (time >= endTime)
         {
-            LineDrawerScript.deletePoint();
-            Destroy(this.gameObject);
+            deletThis();
             time = -5000;
         }
 	}
+    void OnCollisionEnter(Collision col)
+    {
+        Debug.Log(col.gameObject.tag);
+        if(col.gameObject.tag == "Eraser")
+        {
+            deletThis();
+            LineDrawerScript.deletePoint();
+            Destroy(this.gameObject);
+        }
+    }
+    public void deletThis()
+    {
+        LineDrawerScript.deletePoint();
+        Destroy(this.gameObject);
+    }
 }

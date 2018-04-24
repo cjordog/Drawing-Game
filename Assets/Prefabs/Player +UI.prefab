@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 114270677189224870}
   m_Layer: 8
   m_Name: LineComponent
-  m_TagString: Untagged
+  m_TagString: LineComponent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

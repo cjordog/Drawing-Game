@@ -123,7 +123,8 @@ public class LineDrawer : MonoBehaviour {
     private void addPoint(Vector2 pos)
     {
         m_Points.Add(pos);
-        Instantiate(linecomponent, pos, Quaternion.identity);
+        var temp = Instantiate(linecomponent, pos, Quaternion.identity);
+        temp.tag = "LineComponent";
     }
     private void printPoints()
     {

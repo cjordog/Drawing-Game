@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212518382873117260}
   - component: {fileID: 61641923558893960}
   - component: {fileID: 50440764032703010}
+  - component: {fileID: 114752699474543634}
   m_Layer: 9
   m_Name: Dumb Enemy
   m_TagString: Enemy
@@ -87,6 +88,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.1050481, y: 0.67}
   m_EdgeRadius: 0
+--- !u!114 &114752699474543634
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1657698008160930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9954002a177b6e42910efb42c24c146, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpHeight: 4
+  timeToJumpApex: 0.4
+  distanceToMove: 5
 --- !u!212 &212518382873117260
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -15,10 +15,11 @@ public class Projectile : MonoBehaviour {
 	private int facingRightInt = 0; 
 	// Use this for initialization
 	void Start () {
+		HealthDisplay = GameObject.Find ("HealthDisplay"); 
 		UIHealthScript = HealthDisplay.GetComponent<Health>();
 
-		if (facingRight)
-			facingRightInt = 1;
+		if (player.transform.position.x < transform.position.x)
+			facingRightInt = 0;
 	}
 	
 	// Update is called once per frame
@@ -31,9 +32,9 @@ public class Projectile : MonoBehaviour {
 			transform.Translate (Vector3.left * speed * Time.deltaTime);
 	}
 
+
 	void OnCollisionEnter2D(Collision2D col){
 		if (col.gameObject.tag == "Player") {
-			Debug.Log ("Projectile damaged Player"); 
 			UIHealthScript.loseHealth ();  
 		}
 		Destroy (gameObject); 

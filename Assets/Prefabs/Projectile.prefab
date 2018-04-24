@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1916086566895708}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.7, y: 2.1412425, z: 0}
+  m_LocalPosition: {x: 0.8398361, y: 0.77617323, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -50,14 +50,14 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1916086566895708}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -72,12 +72,12 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.2799999
+  m_Radius: 0.9397111
 --- !u!114 &114488868497534628
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -92,7 +92,8 @@ MonoBehaviour:
   facingRight: 0
   speed: 5
   player: {fileID: 1411638336164592, guid: a6b884d48a24e334d8483d3a4b8e27cd, type: 2}
-  LineComponent: {fileID: 0}
+  LineComponent: {fileID: 1891852227939804, guid: 281238cea27322e409932aacc453cdb9,
+    type: 2}
   HealthDisplay: {fileID: 0}
 --- !u!212 &212299752195905456
 SpriteRenderer:

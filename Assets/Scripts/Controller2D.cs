@@ -4,6 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class Controller2D : MonoBehaviour {
     public LayerMask collisionMask; //SHOULD BE OBSTACLE MASK
+    public LayerMask enemyMask;
     const float skinWidth = .005f;
     BoxCollider2D collider;
 
@@ -16,9 +17,13 @@ public class Controller2D : MonoBehaviour {
     float horizontalRaySpacing;
     float verticalRaySpacing;
     float averageAngle;
+    float invincibleTime=2f;
+    bool takenDamage;
+    Health healthController;
     // Use this for initialization
     void Start() {
         collider = GetComponent<BoxCollider2D>(); //get collider
+        healthController = GameObject.Find("HealthDisplay").GetComponent<Health>();
         CalculateRaySpacing(); //only needs to calculate spacing of rays from collider once
     }
 
@@ -32,9 +37,16 @@ public class Controller2D : MonoBehaviour {
             Vector2 rayOrigin = (directionX == -1) ? raycastorigins.bottomLeft : raycastorigins.bottomRight;
             rayOrigin += Vector2.up * (horizontalRaySpacing * i);
             RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.right * directionX, rayLength, collisionMask);
-
+            RaycastHit2D enemyHit = Physics2D.Raycast(rayOrigin, Vector2.right * directionX, rayLength, enemyMask);
             Debug.DrawRay(rayOrigin, Vector2.right * directionX * rayLength, Color.red);
-
+            if (enemyHit)
+            {
+                if (!takenDamage)
+                {
+                    healthController.loseHealth();
+                    takenDamage = true;
+                }
+            }
             if (hit)
             {
                 float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
@@ -86,9 +98,17 @@ public class Controller2D : MonoBehaviour {
 
             rayOrigin += Vector2.right * (verticalRaySpacing * i + velocity.x);
             RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.up * directionY, rayLength, collisionMask);
-
+            RaycastHit2D enemyHit = Physics2D.Raycast(rayOrigin, Vector2.right * directionY, rayLength, enemyMask);
             Debug.DrawRay(rayOrigin, Vector2.up * directionY * rayLength, Color.red);
 
+            if (enemyHit)
+            {
+                if (!takenDamage)
+                {
+                    healthController.loseHealth();
+                    takenDamage = true;
+                }
+            }
             if (hit)
             {
 
@@ -136,7 +156,7 @@ public class Controller2D : MonoBehaviour {
         {
             averageAngle = averageAngle + slopeAngle / 2;
         }
-        Debug.Log(velocity.x);
+        //Debug.Log(velocity.x);
         float moveDistance = Mathf.Abs(velocity.x);
         float climbVelocityY = Mathf.Sin(averageAngle * Mathf.Deg2Rad) * moveDistance;
         if (velocity.y <= climbVelocityY)
@@ -245,5 +265,16 @@ public class Controller2D : MonoBehaviour {
         public Vector2 bottomLeft, bottomRight;
     }
 	// Update is called once per frame
-	
+	void Update()
+    {
+        if(takenDamage)
+        {
+            invincibleTime = invincibleTime - Time.deltaTime;
+            if (invincibleTime < 0)
+            {
+                takenDamage = false;
+                invincibleTime = 2f;
+            }
+        }
+    }
 }

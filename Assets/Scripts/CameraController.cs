@@ -27,7 +27,7 @@ public class CameraController : MonoBehaviour {
             yDifference = transform.position.y - player.transform.position.y;
 
         smoothTime = 1/(Mathf.Sqrt(Mathf.Pow(xDifference, 2) + Mathf.Pow(yDifference,2)));
-        Debug.Log(smoothTime);
+        //Debug.Log(smoothTime);
         if (xDifference >= movementThreshold  || yDifference >= movementThreshold)
         {
             moveTemp = new Vector3(player.transform.position.x, player.transform.position.y, transform.position.z);

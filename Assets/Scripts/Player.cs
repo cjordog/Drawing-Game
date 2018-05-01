@@ -5,9 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(LineDrawer))]
 public class Player : MonoBehaviour {
     private Rigidbody2D rb;
-    float gravity = -20;
+    float gravity = -10;
     Vector3 velocity; 
-    private float moveSpeed;
+    public float moveSpeed;
     public float jumpHeight = 4;
     public float timeToJumpApex = .4f;
     float jumpVelocity;
@@ -25,7 +25,7 @@ public class Player : MonoBehaviour {
         
         //rb = this.GetComponent<Rigidbody2D>();
         //slowdown = .5f;
-        moveSpeed = 6f;
+        moveSpeed = 10f;
         gravity = - (2 * jumpHeight) / Mathf.Pow(timeToJumpApex, 2);
         jumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
     }

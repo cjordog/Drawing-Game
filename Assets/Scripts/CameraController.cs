@@ -13,7 +13,8 @@ public class CameraController : MonoBehaviour {
     [SerializeField] float yDifference;
 
     [SerializeField] float movementThreshold = 5;
-
+    private Vector3 velocity = Vector3.zero;
+    private float smoothTime;
     void FixedUpdate()
     {
         if (player.transform.position.x > transform.position.x)
@@ -25,10 +26,13 @@ public class CameraController : MonoBehaviour {
         else
             yDifference = transform.position.y - player.transform.position.y;
 
+        smoothTime = 1/(Mathf.Sqrt(Mathf.Pow(xDifference, 2) + Mathf.Pow(yDifference,2)));
+        Debug.Log(smoothTime);
         if (xDifference >= movementThreshold  || yDifference >= movementThreshold)
         {
             moveTemp = new Vector3(player.transform.position.x, player.transform.position.y, transform.position.z);
-            transform.position = Vector3.MoveTowards(transform.position, moveTemp, speed * Time.deltaTime);
+            //transform.position = Vector3.MoveTowards(transform.position, moveTemp, speed * Time.deltaTime);
+            transform.position = Vector3.SmoothDamp(transform.position, moveTemp, ref velocity, smoothTime);
 
         }
     }

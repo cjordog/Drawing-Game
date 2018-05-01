@@ -19,6 +19,14 @@ public class Health : MonoBehaviour {
 	void Update () {
 		
 	}
+    public void die()
+    {
+        Heart1.color = new Color32(0, 0, 0, 255);
+        Heart2.color = new Color32(0, 0, 0, 255);
+        Heart3.color = new Color32(0, 0, 0, 255);
+        lives = 0;
+        isDead = true;
+    }
 	//pass in lives after loss
 	public void loseHealth(){
 		lives--; 
@@ -27,9 +35,7 @@ public class Health : MonoBehaviour {
 		if(lives == 1)
 			Heart2.color = new Color32 (0, 0, 0, 255);
 		if (lives == 0) {
-			Heart3.color = new Color32 (0, 0, 0, 255);
-			isDead = true; 
-			Debug.Log("Player is Dead :(");
+            die();
 		}
 	}
 	//resets the hearts to be red

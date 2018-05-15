@@ -10,17 +10,19 @@ public class FallingEraser : MonoBehaviour {
     private float radius;
     public LayerMask obstacleMask;
     private CircleCollider2D temp;
+    private Vector3 tempRay;
     void Start()
     {
         temp = this.gameObject.GetComponent<CircleCollider2D>();
         radius = temp.radius;
+        tempRay = Vector3.right;
     }
     void shootRayToDestroy(Vector3 direction)
     {
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < 4; i++)
         {
-            RaycastHit2D enemyHit = Physics2D.Raycast(this.transform.position + Vector3.down * radius / 2, direction, rayLength, obstacleMask);
-            Debug.DrawRay(this.transform.position + Vector3.down * radius / 2, direction * rayLength, Color.red);
+            RaycastHit2D enemyHit = Physics2D.Raycast(this.transform.position, direction, radius*1.2f, obstacleMask);
+            Debug.DrawRay(this.transform.position, direction * radius*1.2f, Color.red);
             if (enemyHit)
             {
                 Debug.Log(enemyHit.collider.gameObject.tag);
@@ -47,9 +49,13 @@ public class FallingEraser : MonoBehaviour {
 
 		transform.Translate(Vector3.down * fallSpeed * Time.deltaTime, Space.World);
 		transform.Rotate(Vector3.forward, spinSpeed * Time.deltaTime);
-        shootRayToDestroy(Vector3.up);
-        shootRayToDestroy(Vector3.Normalize(-new Vector3(.3f, .9f, 0)));
-        shootRayToDestroy(Vector3.Normalize(-new Vector3(-.3f, .9f, 0)));
+        
+        for (int i = 0; i < 180; i = i + 20)
+        {
+
+            tempRay = new Vector3(Mathf.Cos(Mathf.Deg2Rad * i), -Mathf.Sin(Mathf.Deg2Rad * i), 0);
+            shootRayToDestroy(tempRay);
+        }
     }
 
 	void OnCollisionEnter2D (Collision2D collision)
@@ -66,6 +72,10 @@ public class FallingEraser : MonoBehaviour {
             }
                
         }
-		
-	}
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Bounds"))
+        {
+            Destroy(this.gameObject);
+        }
+
+        }
 }

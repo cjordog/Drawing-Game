@@ -5,12 +5,16 @@ using UnityEngine;
 public class FlyingEnemy : MonoBehaviour {
 
     public Vector3 pos1, pos2;
-	public float speed = 1.0f;
+    private float speed;
+    public bool horizontal;
     void Start()
     {
         pos1 = this.transform.position;
-        pos2 = pos1 - new Vector3(8, 0, 0);
-        
+        if(horizontal)
+            pos2 = pos1 - new Vector3(10, 0, 0);
+       else
+            pos2 = pos1 - new Vector3(0, 10, 0);
+        speed = Random.Range(.75f, 2f);
     }
 	void Update() {
         

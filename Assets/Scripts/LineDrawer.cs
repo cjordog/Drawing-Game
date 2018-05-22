@@ -27,7 +27,7 @@ public class LineDrawer : MonoBehaviour {
             GUI.Box(new Rect(0, 0, size.x, size.y), emptyTex);
 
             //draw the filled-in part:
-            GUI.BeginGroup(new Rect(0, 0, size.x * barDisplay, size.y));
+            GUI.BeginGroup(new Rect(0, 0, size.x * (1-barDisplay), size.y));
             GUI.Box(new Rect(0, 0, size.x, size.y), fullTex);
             GUI.EndGroup();
             GUI.EndGroup();

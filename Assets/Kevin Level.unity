@@ -1863,56 +1863,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a7fb25f04dfeb4fd588a3cdfee8783dc, type: 2}
   m_IsPrefabParent: 0
---- !u!1001 &842497765
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1157501660}
-    m_Modifications:
-    - target: {fileID: 4673520964741512, guid: c71376cc9f1f721418c5b6e5b58194c2, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -2.82705
-      objectReference: {fileID: 0}
-    - target: {fileID: 4673520964741512, guid: c71376cc9f1f721418c5b6e5b58194c2, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -75.83388
-      objectReference: {fileID: 0}
-    - target: {fileID: 4673520964741512, guid: c71376cc9f1f721418c5b6e5b58194c2, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4673520964741512, guid: c71376cc9f1f721418c5b6e5b58194c2, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4673520964741512, guid: c71376cc9f1f721418c5b6e5b58194c2, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4673520964741512, guid: c71376cc9f1f721418c5b6e5b58194c2, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4673520964741512, guid: c71376cc9f1f721418c5b6e5b58194c2, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4673520964741512, guid: c71376cc9f1f721418c5b6e5b58194c2, type: 2}
-      propertyPath: m_RootOrder
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4673520964741512, guid: c71376cc9f1f721418c5b6e5b58194c2, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 4673520964741512, guid: c71376cc9f1f721418c5b6e5b58194c2, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1.5724686
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: c71376cc9f1f721418c5b6e5b58194c2, type: 2}
-  m_IsPrefabParent: 0
 --- !u!4 &862624023 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4922254968057732, guid: 6ddd1d7d41c722e4d88cc6395b93c57b,
@@ -2770,7 +2720,6 @@ Transform:
   - {fileID: 423360782}
   - {fileID: 790213852}
   - {fileID: 417536176}
-  - {fileID: 1203977891}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2779,11 +2728,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4852636040732166, guid: 3f3dc82f76240b145a2c59c20d3e5c0d,
     type: 2}
   m_PrefabInternal: {fileID: 1784920485}
---- !u!4 &1203977891 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4673520964741512, guid: c71376cc9f1f721418c5b6e5b58194c2,
-    type: 2}
-  m_PrefabInternal: {fileID: 842497765}
 --- !u!1001 &1244602375
 Prefab:
   m_ObjectHideFlags: 0
@@ -3468,6 +3412,26 @@ Prefab:
       propertyPath: timeToJumpApex
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 61579005855111170, guid: b459e7307cb5eed4f9e477827aa345c8,
+        type: 2}
+      propertyPath: m_Offset.x
+      value: 0.092501044
+      objectReference: {fileID: 0}
+    - target: {fileID: 61579005855111170, guid: b459e7307cb5eed4f9e477827aa345c8,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 2.5287635
+      objectReference: {fileID: 0}
+    - target: {fileID: 61579005855111170, guid: b459e7307cb5eed4f9e477827aa345c8,
+        type: 2}
+      propertyPath: m_Offset.y
+      value: -0.312191
+      objectReference: {fileID: 0}
+    - target: {fileID: 61579005855111170, guid: b459e7307cb5eed4f9e477827aa345c8,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 1.9418888
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b459e7307cb5eed4f9e477827aa345c8, type: 2}
   m_IsPrefabParent: 0
@@ -3704,8 +3668,8 @@ MonoBehaviour:
   speed: 100
   xDifference: 0
   yDifference: 0
-  movementThreshold: 1
-  offset: {x: 0, y: 0}
+  yMovementThreshold: 3.5
+  xMovementThreshold: 5
 --- !u!114 &1636457930
 MonoBehaviour:
   m_ObjectHideFlags: 0

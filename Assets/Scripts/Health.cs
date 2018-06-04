@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI; 
-
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class Health : MonoBehaviour {
 	public Image Heart1;
 	public Image Heart2;
@@ -26,6 +26,7 @@ public class Health : MonoBehaviour {
         Heart3.color = new Color32(0, 0, 0, 255);
         lives = 0;
         isDead = true;
+        SceneManager.LoadScene("Game Over Screen"); //load game over screen
     }
 	//pass in lives after loss
 	public void loseHealth(){

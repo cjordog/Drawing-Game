@@ -6,25 +6,41 @@ public class CameraController : MonoBehaviour {
 
     [SerializeField] Transform player;
 
-    private Vector3 moveTemp;
     
     [SerializeField] float speed = 6f;
     [SerializeField] float xDifference;
     [SerializeField] float yDifference;
 
-    [SerializeField] float yMovementThreshold = 2.5f;
+    [SerializeField] float yMovementThreshold = 3.5f;
 	[SerializeField] float xMovementThreshold = 5f;
     private Vector3 velocity = Vector3.zero;
-    private float smoothTime = 0.2f;
+    private float smoothTime = 0.1f;
     void Update()
     {
-		xDifference = Mathf.Abs (player.transform.position.x - transform.position.x);
-		yDifference = Mathf.Abs (player.transform.position.y - transform.position.y);
-        if (xDifference >= xMovementThreshold  || yDifference >= yMovementThreshold)
-        {
-            moveTemp = new Vector3(player.transform.position.x, player.transform.position.y, transform.position.z);
-            transform.position = Vector3.SmoothDamp(transform.position, moveTemp, ref velocity, smoothTime);
+		xDifference = player.transform.position.x - transform.position.x;
+		yDifference = player.transform.position.y - transform.position.y;
+		float xTemp = transform.position.x, yTemp = transform.position.y;
+		Vector3 moveTemp = transform.position;
+		smoothTime = 0.1f/(Mathf.Sqrt(Mathf.Pow(xDifference, 2) + Mathf.Pow(yDifference,2)));
+		if (Mathf.Abs(xDifference) >= xMovementThreshold)
+		{
+			if (xDifference < 0) {
+				xTemp = player.transform.position.x + xMovementThreshold;
+			} else if (xDifference > 0) {
+				xTemp = player.transform.position.x - xMovementThreshold;
+			}
+			moveTemp = new Vector3 (xTemp, yTemp, transform.position.z);
         }
+		if (Mathf.Abs(yDifference) >= yMovementThreshold) {
+			if (yDifference < 0) {
+				yTemp = player.transform.position.y + yMovementThreshold;
+			} else if (yDifference > 0) {
+				yTemp = player.transform.position.y - yMovementThreshold;
+			}
+			moveTemp = new Vector3 (xTemp, yTemp, transform.position.z);
+		}
+//		transform.position = moveTemp;
+		transform.position = Vector3.SmoothDamp(transform.position, moveTemp, ref velocity, smoothTime);
     }
 
     //public GameObject player;

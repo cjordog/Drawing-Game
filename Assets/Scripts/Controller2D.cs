@@ -17,7 +17,7 @@ public class Controller2D : MonoBehaviour {
     float horizontalRaySpacing;
     float verticalRaySpacing;
     float averageAngle;
-    float invincibleTime=2f;
+    float invincibleTime=1f;
     bool takenDamage;
     Health healthController;
     // Use this for initialization

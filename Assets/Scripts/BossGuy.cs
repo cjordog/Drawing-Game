@@ -4,44 +4,64 @@ using UnityEngine;
 using UnityEngine.UI; 
 
 public class BossGuy : MonoBehaviour {
-
-	public Slider BossHealthSlider;
-
-	public float BossHealth; 
-
 	private int left = 1; 
 	private int right = 2; 
 	private int notmoving = 3; 
 
-	public int chargespeed = 12; 
+	public int chargespeed = 10; 
 	public int currentChargingDirection; 
+
+	public int angerLevel = 1; 
 
 	public GameObject projectile;
 	public GameObject reflectableProjectile; 
+	public GameObject destroyingProjectile; 
 	[SerializeField]
 	private GameObject HealthDisplay;
 	private Health UIHealthScript;
 	public Transform player;
 
+	public Transform leftBoundary;
+	public Transform rightBoundary; 
+
+	private BossHealthBarController healthBar; 
+
 	private bool isCharging = false; 
 	private bool isShooting = false; 
+
 	// Use this for initialization
 	void Start () {
-		BossHealth = 1.0f; 
-		UIHealthScript = HealthDisplay.GetComponent<Health>();
 		ShootThreeProjectiles ();  
+		healthBar = GameObject.Find ("BossHealthBar").GetComponent<BossHealthBarController> (); 
+		UIHealthScript = HealthDisplay.GetComponent<Health>();
+
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-		BossHealthSlider.value = BossHealth; 
 		PossiblyAttack (); 
 		if (isCharging) {
 			Charge ();
 		}
+		if (healthBar.currentHealth == 70) {
+			angerLevel = 2; 
+			chargespeed = 14; 
+		}
+		if (healthBar.currentHealth == 50) {
+			angerLevel = 3; 
+			chargespeed = 18; 
+		}
+		if (healthBar.currentHealth <= 0) {
+			healthBar.gameObject.SetActive (false); 
+			Destroy (gameObject); 
+		}
+		//angry and mega-angry
+
 	}
 	public void getInjured(){
-		BossHealth -= .1f; 
+		Debug.Log ("Boss injured"); 
+		healthBar.takeDamage (5);
+		isCharging = false; 
 	}
 	void PossiblyAttack(){
 		int randomInt = Random.Range (0, 60);
@@ -58,6 +78,11 @@ public class BossGuy : MonoBehaviour {
 	}
 
 	void Charge(){
+		if (transform.position.x < leftBoundary.transform.position.x -1 || transform.position.x > rightBoundary.transform.position.x + 1) {
+			
+			isCharging = false; 
+			return; 
+		}
 		if (currentChargingDirection == left) {
 			if (transform.position.x <= player.transform.position.x - 5) {
 				isCharging = false; 
@@ -71,6 +96,7 @@ public class BossGuy : MonoBehaviour {
 				Debug.Log ("I'm out of range and should be stopping");
 				isCharging = false; 
 				currentChargingDirection = notmoving; 
+
 			} else {
 				transform.Translate (Vector3.right * chargespeed * Time.deltaTime);
 			}
@@ -84,11 +110,33 @@ public class BossGuy : MonoBehaviour {
 	IEnumerator ShootThreeProjectilesCoroutine()
 	{
 		isShooting = true; 
-		Instantiate (projectile, new Vector2(gameObject.transform.position.x, gameObject.transform.position.y +1), Quaternion.identity);
-		yield return new WaitForSeconds (.4f);
-		Instantiate (reflectableProjectile, new Vector2(gameObject.transform.position.x, gameObject.transform.position.y), Quaternion.identity);
-		yield return new WaitForSeconds (.4f); 
-		Instantiate (projectile, new Vector2(gameObject.transform.position.x, gameObject.transform.position.y - 1), Quaternion.identity);
+		Instantiate (projectile, new Vector2(gameObject.transform.position.x, gameObject.transform.position.y), Quaternion.identity);
+		yield return new WaitForSeconds (1f);
+		if (healthBar.currentHealth <= 70) {
+			int maybeDestroyingProjectile = Random.Range (0, 10);
+			if(maybeDestroyingProjectile <= 5)
+				Instantiate (destroyingProjectile, new Vector2(gameObject.transform.position.x, gameObject.transform.position.y), Quaternion.identity);
+			if(maybeDestroyingProjectile > 5)
+				Instantiate (reflectableProjectile, new Vector2(gameObject.transform.position.x, gameObject.transform.position.y), Quaternion.identity);
+			yield return new WaitForSeconds (1f); 
+		}
+		if (healthBar.currentHealth > 70) {
+			Instantiate (reflectableProjectile, new Vector2(gameObject.transform.position.x, gameObject.transform.position.y), Quaternion.identity);
+			yield return new WaitForSeconds (1f); 
+		}
+
+		Instantiate (projectile, new Vector2(gameObject.transform.position.x, gameObject.transform.position.y), Quaternion.identity);
 		isShooting = false; 
+	}
+	void OnCollisionEnter2D(Collision2D col){
+		Debug.Log ("I collided with something");
+		if (col.gameObject.tag == "Player") {
+			UIHealthScript.loseHealth (); 
+		}
+		LineScript script = col.gameObject.GetComponent<LineScript> ();
+		if (script != null) { //if it hit a line component object, destroy
+			Debug.Log ("blocked by linecomponent");
+			isCharging = false; 
+		}
 	}
 }

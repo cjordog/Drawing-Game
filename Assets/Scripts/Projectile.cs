@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour {
-	public int speed = 5; 
+	public int speed = 4; 
 	public Transform player; 
-	public GameObject LineComponent; 
+	public GameObject boss; 
 	public bool isReflectingProjectile; 
+	public bool isDestroyingProjectile; 
 	public bool reflected = false; 
 	[SerializeField]
 	private GameObject HealthDisplay;
@@ -15,11 +16,15 @@ public class Projectile : MonoBehaviour {
 	private bool facingRight = true; 
 	// Use this for initialization
 	void Start () {
+		boss = GameObject.FindGameObjectWithTag ("Boss"); 
 		player = GameObject.FindGameObjectWithTag ("Player").transform; 
 		HealthDisplay = GameObject.Find ("HealthDisplay"); 
+		Physics2D.IgnoreCollision (boss.GetComponent<Collider2D> (), GetComponent<Collider2D> ()); 
 		UIHealthScript = HealthDisplay.GetComponent<Health>();
 		if (player.transform.position.x < transform.position.x)
 			facingRight = false;
+		
+		speed = speed * boss.GetComponent<BossGuy> ().angerLevel;
 	}
 	
 	// Update is called once per frame
@@ -34,22 +39,36 @@ public class Projectile : MonoBehaviour {
 
 
 	void OnCollisionEnter2D(Collision2D col){
-		LineScript script = col.gameObject.GetComponent<LineScript> (); 
-		if (script != null && !reflected) { //if it hit a line component object
+		if (col.gameObject.tag == "boundary")
+			Destroy (gameObject); 
+		LineScript script = col.gameObject.GetComponent<LineScript> ();
+
+		if (script != null && isDestroyingProjectile) { //if it hit a line component object, pass through
+			Debug.Log("I passed through!");
+			Physics2D.IgnoreCollision (col.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+		}
+		if (script != null && isReflectingProjectile) { //if it hit a line component object, get reflected
 			facingRight = !facingRight; 
 			Debug.Log ("reflected");
+			Physics2D.IgnoreCollision (boss.GetComponent<Collider2D> (), GetComponent<Collider2D> (), false);
 			reflected = true; 
+		}
+		if (script != null && !isDestroyingProjectile && !isReflectingProjectile) {
+			Debug.Log ("I got destroyed"); 
+			Destroy (gameObject); 
+		}
+		if (col.gameObject.tag == "Projectile") {
+			Physics2D.IgnoreCollision (col.gameObject.GetComponent<Collider2D> (), GetComponent<Collider2D> ());
 		}
 		if (col.gameObject.tag == "Player") {
 			UIHealthScript.loseHealth ();  
 			Destroy (gameObject);
-		} else if (col.gameObject.tag == "Enemy" && reflected) {
+		} 
+		if (col.gameObject.tag == "Boss" && reflected) {
 			Debug.Log ("Hit Boss when reflected");
 			col.gameObject.GetComponent <BossGuy> ().getInjured (); 
 			Destroy (gameObject); 
-		} else if (!isReflectingProjectile) {
-			Destroy (gameObject); 
-		}
+		} 
 		 
 	}
 }

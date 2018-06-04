@@ -8,6 +8,8 @@ TagManager:
   - Eraser
   - Enemy
   - Projectile
+  - Boss
+  - boundary
   layers:
   - Default
   - TransparentFX
@@ -44,4 +46,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 3668550551
+    locked: 0
+  - name: Foreground
+    uniqueID: 3886277699
     locked: 0

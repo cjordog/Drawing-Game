@@ -189,6 +189,36 @@ Prefab:
       propertyPath: m_Color.b
       value: 0.35294116
       objectReference: {fileID: 0}
+    - target: {fileID: 61579005855111170, guid: b459e7307cb5eed4f9e477827aa345c8,
+        type: 2}
+      propertyPath: m_Offset.y
+      value: -0.48350167
+      objectReference: {fileID: 0}
+    - target: {fileID: 61579005855111170, guid: b459e7307cb5eed4f9e477827aa345c8,
+        type: 2}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 5.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 61579005855111170, guid: b459e7307cb5eed4f9e477827aa345c8,
+        type: 2}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 61579005855111170, guid: b459e7307cb5eed4f9e477827aa345c8,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 1.6370034
+      objectReference: {fileID: 0}
+    - target: {fileID: 61579005855111170, guid: b459e7307cb5eed4f9e477827aa345c8,
+        type: 2}
+      propertyPath: m_Offset.x
+      value: 0.18802854
+      objectReference: {fileID: 0}
+    - target: {fileID: 61579005855111170, guid: b459e7307cb5eed4f9e477827aa345c8,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 1.8709459
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b459e7307cb5eed4f9e477827aa345c8, type: 2}
   m_IsPrefabParent: 0
@@ -339,7 +369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f297703433a28142be207a4ec7407fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 2039413078}
+  player: {fileID: 1478967517}
   speed: 6
   xDifference: 0
   yDifference: 0
@@ -571,6 +601,11 @@ Prefab:
 --- !u!1 &1478967516 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1962505491568264, guid: b459e7307cb5eed4f9e477827aa345c8,
+    type: 2}
+  m_PrefabInternal: {fileID: 110773018}
+--- !u!4 &1478967517 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4668020877908616, guid: b459e7307cb5eed4f9e477827aa345c8,
     type: 2}
   m_PrefabInternal: {fileID: 110773018}
 --- !u!95 &1478967518

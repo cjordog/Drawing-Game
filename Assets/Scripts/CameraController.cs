@@ -12,29 +12,18 @@ public class CameraController : MonoBehaviour {
     [SerializeField] float xDifference;
     [SerializeField] float yDifference;
 
-    [SerializeField] float movementThreshold = 5;
+    [SerializeField] float yMovementThreshold = 2.5f;
+	[SerializeField] float xMovementThreshold = 5f;
     private Vector3 velocity = Vector3.zero;
-    private float smoothTime;
-    public Vector2 offset = Vector2.zero;
-    void FixedUpdate()
+    private float smoothTime = 0.2f;
+    void Update()
     {
-        if (player.transform.position.x > transform.position.x)
-            xDifference = player.transform.position.x - transform.position.x;
-        else
-            xDifference = transform.position.x - player.transform.position.x;
-        if (player.transform.position.y > transform.position.y)
-            yDifference = player.transform.position.y - transform.position.y;
-        else
-            yDifference = transform.position.y - player.transform.position.y;
-
-        smoothTime = 1/(Mathf.Sqrt(Mathf.Pow(xDifference, 2) + Mathf.Pow(yDifference,2)));
-        //Debug.Log(smoothTime);
-        if (xDifference >= movementThreshold  || yDifference >= movementThreshold)
+		xDifference = Mathf.Abs (player.transform.position.x - transform.position.x);
+		yDifference = Mathf.Abs (player.transform.position.y - transform.position.y);
+        if (xDifference >= xMovementThreshold  || yDifference >= yMovementThreshold)
         {
-            moveTemp = new Vector3(player.transform.position.x + offset.x, player.transform.position.y + offset.y, transform.position.z);
-            //transform.position = Vector3.MoveTowards(transform.position, moveTemp, speed * Time.deltaTime);
+            moveTemp = new Vector3(player.transform.position.x, player.transform.position.y, transform.position.z);
             transform.position = Vector3.SmoothDamp(transform.position, moveTemp, ref velocity, smoothTime);
-
         }
     }
 

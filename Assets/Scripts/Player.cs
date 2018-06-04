@@ -44,6 +44,20 @@ public class Player : MonoBehaviour {
         }
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         float targetVelocityX = input.x * moveSpeed;
+		if (velocity.x < 0) {
+			Vector3 theScale = transform.localScale;
+			theScale.x = -Mathf.Abs (theScale.x);
+			transform.localScale = theScale;
+		} else if (velocity.x > 0) {
+			Vector3 theScale = transform.localScale;
+			theScale.x = Mathf.Abs (theScale.x);
+			transform.localScale = theScale;
+		}
+		if (input == Vector2.zero) {
+			GetComponent<Animator> ().SetBool ("moving", false);
+		} else {
+			GetComponent<Animator> ().SetBool ("moving", true);
+		}
 
         velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below)?accelerationTimeGrounded:accelerationTimeAirborne);
         velocity.y += gravity * Time.deltaTime;

@@ -39,7 +39,6 @@ public class CameraController : MonoBehaviour {
 			}
 			moveTemp = new Vector3 (xTemp, yTemp, transform.position.z);
 		}
-//		transform.position = moveTemp;
 		transform.position = Vector3.SmoothDamp(transform.position, moveTemp, ref velocity, smoothTime);
     }
 

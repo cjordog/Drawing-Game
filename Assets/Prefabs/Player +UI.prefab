@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 114270677189224870}
   m_Layer: 8
   m_Name: LineComponent
-  m_TagString: Untagged
+  m_TagString: LineComponent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,6 +144,7 @@ GameObject:
   - component: {fileID: 114016533358536356}
   - component: {fileID: 114380014052236752}
   - component: {fileID: 114223050695828950}
+  - component: {fileID: 95430493284065040}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -220,19 +221,36 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.18802854, y: -0.48350167}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 0.67}
+    oldSize: {x: 5.5, y: 4}
     newSize: {x: 1.28, y: 0.67}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.28, y: 0.67}
+  m_Size: {x: 1.8709459, y: 1.6370034}
   m_EdgeRadius: 0
+--- !u!95 &95430493284065040
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1962505491568264}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: de4e8b2058fbe4d5e9cd240ef2a0f1d3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &95975134156709400
 Animator:
   serializedVersion: 3
@@ -267,6 +285,9 @@ MonoBehaviour:
   enemyMask:
     serializedVersion: 2
     m_Bits: 512
+  boundaryMask:
+    serializedVersion: 2
+    m_Bits: 0
   horizontalRayCount: 4
   verticalRayCount: 4
 --- !u!114 &114215224407931484
@@ -336,6 +357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ced0d4165b6b9a34bae8ba2cc654337b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 0
   jumpHeight: 2
   timeToJumpApex: 0.3
 --- !u!114 &114406824626285210
@@ -479,7 +501,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a9c136f9dcfd3954fa0f3fab6260607f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 99801df6f12cf4a779f02a7da2798a9f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -523,8 +545,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7931262bee02b4179ab843cecd12cb07, type: 3}
-  m_Color: {r: 0.97794116, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300102, guid: e9c292678afd44a4bb07529518554dd0, type: 3}
+  m_Color: {r: 0.35294116, g: 0.35294116, b: 0.35294116, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

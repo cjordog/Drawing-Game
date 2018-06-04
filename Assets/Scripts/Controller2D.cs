@@ -5,6 +5,7 @@ using UnityEngine;
 public class Controller2D : MonoBehaviour {
     public LayerMask collisionMask; //SHOULD BE OBSTACLE MASK
     public LayerMask enemyMask;
+    public LayerMask boundaryMask;
     const float skinWidth = .005f;
     BoxCollider2D collider;
 
@@ -38,7 +39,12 @@ public class Controller2D : MonoBehaviour {
             rayOrigin += Vector2.up * (horizontalRaySpacing * i);
             RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.right * directionX, rayLength, collisionMask);
             RaycastHit2D enemyHit = Physics2D.Raycast(rayOrigin, Vector2.right * directionX, rayLength, enemyMask);
+            RaycastHit2D boundHit = Physics2D.Raycast(rayOrigin, Vector2.right * directionX, rayLength, boundaryMask);
             Debug.DrawRay(rayOrigin, Vector2.right * directionX * rayLength, Color.red);
+            if (boundHit)
+            {
+                healthController.die();
+            }
             if (enemyHit)
             {
                 if (!takenDamage)
@@ -99,8 +105,12 @@ public class Controller2D : MonoBehaviour {
             rayOrigin += Vector2.right * (verticalRaySpacing * i + velocity.x);
             RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.up * directionY, rayLength, collisionMask);
             RaycastHit2D enemyHit = Physics2D.Raycast(rayOrigin, Vector2.right * directionY, rayLength, enemyMask);
+            RaycastHit2D boundHit = Physics2D.Raycast(rayOrigin, Vector2.right * directionY, rayLength, boundaryMask);
             Debug.DrawRay(rayOrigin, Vector2.up * directionY * rayLength, Color.red);
-
+            if (boundHit)
+            {
+                healthController.die();
+            }
             if (enemyHit)
             {
                 if (!takenDamage)

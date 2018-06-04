@@ -5,11 +5,11 @@ using UnityEngine;
 [RequireComponent(typeof(LineDrawer))]
 public class Player : MonoBehaviour {
     private Rigidbody2D rb;
-    float gravity = -20;
+    float gravity = -10;
     Vector3 velocity; 
-    private float moveSpeed;
-    public float jumpHeight = 4;
-    public float timeToJumpApex = .4f;
+    public float moveSpeed;
+    public float jumpHeight = 8f;
+    public float timeToJumpApex = 1f;
     float jumpVelocity;
     float accelerationTimeAirborne = .2f;
     float accelerationTimeGrounded = .1f;
@@ -25,7 +25,7 @@ public class Player : MonoBehaviour {
         
         //rb = this.GetComponent<Rigidbody2D>();
         //slowdown = .5f;
-        moveSpeed = 6f;
+        moveSpeed = 10f;
         gravity = - (2 * jumpHeight) / Mathf.Pow(timeToJumpApex, 2);
         jumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
     }
@@ -44,6 +44,20 @@ public class Player : MonoBehaviour {
         }
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         float targetVelocityX = input.x * moveSpeed;
+		if (velocity.x < 0) {
+			Vector3 theScale = transform.localScale;
+			theScale.x = -Mathf.Abs (theScale.x);
+			transform.localScale = theScale;
+		} else if (velocity.x > 0) {
+			Vector3 theScale = transform.localScale;
+			theScale.x = Mathf.Abs (theScale.x);
+			transform.localScale = theScale;
+		}
+		if (input == Vector2.zero) {
+			GetComponent<Animator> ().SetBool ("moving", false);
+		} else {
+			GetComponent<Animator> ().SetBool ("moving", true);
+		}
 
         velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below)?accelerationTimeGrounded:accelerationTimeAirborne);
         velocity.y += gravity * Time.deltaTime;

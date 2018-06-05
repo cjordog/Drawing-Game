@@ -40,7 +40,7 @@ public class EnemyBackAndForth : MonoBehaviour {
 	}
 	void OnCollisionEnter2D(Collision2D col){
 		if (col.gameObject.tag == "Player") {
-			Debug.Log ("Damage Player"); 
+			Debug.Log ("Enemy Damaged Player"); 
 			UIHealthScript.loseHealth (); 
 			Destroy (gameObject); 
 		}

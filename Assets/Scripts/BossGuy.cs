@@ -64,6 +64,9 @@ public class BossGuy : MonoBehaviour {
 		isCharging = false; 
 	}
 	void PossiblyAttack(){
+		if(player.transform.position.x < leftBoundary.transform.position.x && player.transform.position.x > rightBoundary.transform.position.x){
+			return; 
+		}
 		int randomInt = Random.Range (0, 60);
 		if (randomInt == 0 && !isCharging && !isShooting) {
 			isCharging = true; 

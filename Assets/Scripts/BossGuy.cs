@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement; 
 using UnityEngine;
 using UnityEngine.UI; 
 
@@ -7,6 +8,7 @@ public class BossGuy : MonoBehaviour {
 	private int left = 1; 
 	private int right = 2; 
 	private int notmoving = 3; 
+	public int Bosshealth = 10; 
 
 	public int chargespeed = 10; 
 	public int currentChargingDirection; 
@@ -32,7 +34,7 @@ public class BossGuy : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		ShootThreeProjectiles ();  
-		healthBar = GameObject.Find ("BossHealthBar").GetComponent<BossHealthBarController> (); 
+		//healthBar = GameObject.Find ("BossHealthBar").GetComponent<BossHealthBarController> (); 
 		UIHealthScript = HealthDisplay.GetComponent<Health>();
 
 	}
@@ -43,6 +45,20 @@ public class BossGuy : MonoBehaviour {
 		if (isCharging) {
 			Charge ();
 		}
+		if (Bosshealth == 7) {
+			angerLevel = 2; 
+			chargespeed = 14; 
+		}
+		if (Bosshealth == 5) {
+			angerLevel = 3; 
+			chargespeed = 18; 
+		}
+		if (Bosshealth <= 0) {
+			healthBar.gameObject.SetActive (false);
+			Destroy (gameObject); 
+			SceneManager.LoadScene ("WinScene");
+		}
+		/*
 		if (healthBar.currentHealth == 70) {
 			angerLevel = 2; 
 			chargespeed = 14; 
@@ -55,12 +71,14 @@ public class BossGuy : MonoBehaviour {
 			healthBar.gameObject.SetActive (false); 
 			Destroy (gameObject); 
 		}
+		*/
 		//angry and mega-angry
 
 	}
 	public void getInjured(){
 		Debug.Log ("Boss injured"); 
-		healthBar.takeDamage (5);
+		Bosshealth--; 
+		//healthBar.takeDamage (5);
 		isCharging = false; 
 	}
 	void PossiblyAttack(){
@@ -68,26 +86,24 @@ public class BossGuy : MonoBehaviour {
 			return; 
 		}
 		int randomInt = Random.Range (0, 60);
-		if (randomInt == 0 && !isCharging && !isShooting) {
+		if (randomInt == 20 && !isCharging && !isShooting) {
 			isCharging = true; 
 			if (player.transform.position.x <= transform.position.x)
 				currentChargingDirection = left;
 			else
 				currentChargingDirection = right; 
 
-		} else if(randomInt == 1 && !isCharging && !isShooting) {
+		} else if(randomInt == 10 && !isCharging && !isShooting) {
 			ShootThreeProjectiles (); 
 		}
 	}
 
 	void Charge(){
-		if (transform.position.x < leftBoundary.transform.position.x -1 || transform.position.x > rightBoundary.transform.position.x + 1) {
-			
+		if (transform.position.x < leftBoundary.transform.position.x || transform.position.x > rightBoundary.transform.position.x) {
 			isCharging = false; 
-			return; 
 		}
 		if (currentChargingDirection == left) {
-			if (transform.position.x <= player.transform.position.x - 5) {
+			if (transform.position.x <= player.transform.position.x - 1) {
 				isCharging = false; 
 				currentChargingDirection = notmoving; 
 			} else {
@@ -95,8 +111,7 @@ public class BossGuy : MonoBehaviour {
 			}
 		}
 		else if(currentChargingDirection == right){
-			if (transform.position.x >= player.transform.position.x + 5) {
-				Debug.Log ("I'm out of range and should be stopping");
+			if (transform.position.x >= player.transform.position.x + 1) {
 				isCharging = false; 
 				currentChargingDirection = notmoving; 
 
@@ -115,7 +130,8 @@ public class BossGuy : MonoBehaviour {
 		isShooting = true; 
 		Instantiate (projectile, new Vector2(gameObject.transform.position.x, gameObject.transform.position.y), Quaternion.identity);
 		yield return new WaitForSeconds (1f);
-		if (healthBar.currentHealth <= 70) {
+
+		if (Bosshealth <= 7) {
 			int maybeDestroyingProjectile = Random.Range (0, 10);
 			if(maybeDestroyingProjectile <= 5)
 				Instantiate (destroyingProjectile, new Vector2(gameObject.transform.position.x, gameObject.transform.position.y), Quaternion.identity);
@@ -123,7 +139,7 @@ public class BossGuy : MonoBehaviour {
 				Instantiate (reflectableProjectile, new Vector2(gameObject.transform.position.x, gameObject.transform.position.y), Quaternion.identity);
 			yield return new WaitForSeconds (1f); 
 		}
-		if (healthBar.currentHealth > 70) {
+		if (Bosshealth > 7) {
 			Instantiate (reflectableProjectile, new Vector2(gameObject.transform.position.x, gameObject.transform.position.y), Quaternion.identity);
 			yield return new WaitForSeconds (1f); 
 		}
